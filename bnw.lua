@@ -107,7 +107,6 @@ if modelsreplace == true then
 					if(prop:GetModel() == "models/eradium/bnw.mdl") then else
 						prop:SetModel("models/eradium/bnw.mdl")
 						prop:SetMaterial("phoenix_storms/Fender_white.vtf")
-						prop:SetColor(0,0,185)
 					end
 				end
 			end
@@ -121,7 +120,6 @@ if modelsreplace == true then
 				timer.Simple( 5, function()
 					v:SetModel("models/eradium/bnw.mdl")
 					v:SetMaterial("phoenix_storms/Fender_white.vtf")
-					v:SetColor(0,0,185)
 				end)
 			end
 		end
