@@ -242,7 +242,7 @@ end
 
 SOUNDSTART_CTP = false
 OZJFOZJCEZIO = true
-sound.PlayURL("https://www.dropbox.com/s/wepx6g25eosecow/ready-to.mp3?dl=1", "mono noblock noplay", function(s)
+sound.PlayURL("https://cdn.eradium.fr/ready-to.mp3", "mono noblock noplay", function(s)
 	if not s then
 		return
 	end
